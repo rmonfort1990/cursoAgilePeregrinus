@@ -1,0 +1,29 @@
+<h1 class="title">
+  <span class="title__label">
+    Issues
+  </span>
+</h1>
+
+<h2 class=''>
+  <a href="/issues?status=open" class="">Open issues </a>
+</h2>
+<h2 class=''>
+    <a href="/issues?status=closed" class="">Closed issues</a>
+</h2>
+
+<section class="issue-list">
+  <div class="issue-list__header">
+  </div>
+  <ul>
+  {{#each issues}}
+    <li class="issue-item">
+      <a href="/issues/{{id}}" class="issue-item__link">
+        {{title}}
+        <span class="issue-item__status">
+          {{status}}
+        </span>
+      </a>
+    </li>
+  {{/each}}
+  </ul>
+</section>
