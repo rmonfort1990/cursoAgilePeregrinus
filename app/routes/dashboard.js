@@ -1,6 +1,6 @@
+const { issueStore, severityStore } = require('../models');
 const express = require('express');
 const router = express.Router();
-const { issueStore, severityStore } = require('../models');
 
 router.get('/', function(req, res) {
   const openIssuesCount = issueStore.getAllOpen().length;
