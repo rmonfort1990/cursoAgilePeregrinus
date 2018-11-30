@@ -10,9 +10,9 @@ router.get('/', function(req, res) {
   let lowIssuesCount = 0;
   if (openIssuesCount > 0)
   {
-    highIssuesCount = openissues.filter(issue => issue.severity === 'high').length / openIssuesCount;
-    mediumIssuesCount = openissues.filter(issue => issue.severity === 'medium').length / openIssuesCount;
-    lowIssuesCount = openissues.filter(issue => issue.severity === 'low').length / openIssuesCount;
+    highIssuesCount = openissues.filter(issue => issue.severity === 'High').length / openIssuesCount;
+    mediumIssuesCount = openissues.filter(issue => issue.severity === 'Medium').length / openIssuesCount;
+    lowIssuesCount = openissues.filter(issue => issue.severity === 'Low').length / openIssuesCount;
   }
   else
   {
