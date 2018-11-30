@@ -60,7 +60,7 @@ describe('Dashboard', function() {
         });
         cy.visit('/dashboard');
 
-        cy.get("[data-test-Medium-gauge]")
+        cy.get("[data-test-medium-gauge]")
             .should('exist')
             .should("contain","medium")
             .should("contain","50%");
