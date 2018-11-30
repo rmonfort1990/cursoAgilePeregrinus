@@ -21,12 +21,12 @@ describe('Dashboard', function() {
         cy.fixture({
             title: "Issue 1",
             status: "open",
-            severity: "high"
+            severity: "High"
         });
         cy.fixture({
             title: "Issue 2",
             status: "open",
-            severity: "low"
+            severity: "Low"
         });
         cy.visit('/dashboard');
 
@@ -51,18 +51,18 @@ describe('Dashboard', function() {
         cy.fixture({
             title: "Issue 1",
             status: "open",
-            severity: "medium"
+            severity: "Medium"
         });
         cy.fixture({
             title: "Issue 2",
             status: "open",
-            severity: "low"
+            severity: "Low"
         });
         cy.visit('/dashboard');
 
         cy.get("[data-test-medium-gauge]")
             .should('exist')
-            .should("contain","medium")
+            .should("contain","Medium")
             .should("contain","50%");
 
     })
@@ -72,13 +72,13 @@ describe('Dashboard', function() {
         cy.fixture({
             title: "Issue 2",
             status: "open",
-            severity: "low"
+            severity: "Low"
         });
         cy.visit('/dashboard');
 
-        cy.get("[data-test-low-gauge]")
+        cy.get("[data-test-Low-gauge]")
             .should('exist')
-            .should("contain","low")
+            .should("contain","Low")
             .should("contain","100%");
 
     })
@@ -88,13 +88,13 @@ describe('Dashboard', function() {
         cy.fixture({
             title: "Issue 2",
             status: "open",
-            severity: "medium"
+            severity: "Medium"
         });
         cy.visit('/dashboard');
 
-        cy.get("[data-test-low-gauge]")
+        cy.get("[data-test-Low-gauge]")
             .should('exist')
-            .should("contain","low")
+            .should("contain","Low")
             .should("contain","0%");
         
         cy.visit('/issues');
@@ -102,15 +102,15 @@ describe('Dashboard', function() {
         cy.get('[data-test-add-issue]').click();
         cy.get('[name="issue[title]"]').type('Blue screen in Windows Vista');
         cy.get('[name="issue[estimation]"]').select('13');
-        cy.get('[name="issue[severity]"]').select('low');
+        cy.get('[name="issue[severity]"]').select('Low');
         cy.get('[name="issue[description]"]').type('When I try to play solitaire in Windows, it crashes with a blue screen');
         cy.get('[type="submit"]').click();
 
         cy.visit('/dashboard');
 
-        cy.get("[data-test-low-gauge]")
+        cy.get("[data-test-Low-gauge]")
             .should('exist')
-            .should("contain","low")
+            .should("contain","Low")
             .should("contain","50%");
         
     })
