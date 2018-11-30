@@ -82,6 +82,38 @@ describe('Dashboard', function() {
             .should("contain","100%");
 
     })
+
+    
+    it('show low severity gauge', function(){
+        cy.fixture({
+            title: "Issue 2",
+            status: "open",
+            severity: "medium"
+        });
+        cy.visit('/dashboard');
+
+        cy.get("[data-test-low-gauge]")
+            .should('exist')
+            .should("contain","low")
+            .should("contain","0%");
+        
+        cy.visit('/issues');
+
+        cy.get('[data-test-add-issue]').click();
+        cy.get('[name="issue[title]"]').type('Blue screen in Windows Vista');
+        cy.get('[name="issue[estimation]"]').select('13');
+        cy.get('[name="issue[severity]"]').select('low');
+        cy.get('[name="issue[description]"]').type('When I try to play solitaire in Windows, it crashes with a blue screen');
+        cy.get('[type="submit"]').click();
+
+        cy.visit('/dashboard');
+
+        cy.get("[data-test-low-gauge]")
+            .should('exist')
+            .should("contain","low")
+            .should("contain","50%");
+        
+    })
 /*
     beforeEach(function() {
         // Cleanup database
