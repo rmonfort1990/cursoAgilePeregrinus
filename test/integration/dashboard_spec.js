@@ -66,6 +66,22 @@ describe('Dashboard', function() {
             .should("contain","50%");
 
     })
+
+    
+    it('show low severity gauge', function(){
+        cy.fixture({
+            title: "Issue 2",
+            status: "open",
+            severity: "low"
+        });
+        cy.visit('/dashboard');
+
+        cy.get("[data-test-low-gauge]")
+            .should('exist')
+            .should("contain","low")
+            .should("contain","100%");
+
+    })
 /*
     beforeEach(function() {
         // Cleanup database
