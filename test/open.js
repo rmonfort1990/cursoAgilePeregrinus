@@ -8,10 +8,9 @@ nodemon({
     "PORT": 3001
   }
 });
-
+cypress.open().then(process.exit);
 nodemon.on('start', function () {
-  console.log('Nodemon started');
-  cypress.open().then(process.exit);
+  console.log('Nodemon started');  
 }).on('quit', function () {
   console.log('Nodemon stopped');
   process.exit();

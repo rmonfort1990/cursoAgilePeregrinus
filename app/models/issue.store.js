@@ -35,6 +35,11 @@ class IssueStore extends BaseStore {
   getAllClosed() {
     return this.getAll().filter(issue => issue.status === 'closed');
   }
+/*
+  getPercentage(){
+    return (this.getAll.filter(issue => issue.severity === 'high').count)
+  }
+  */
 }
 
 module.exports = new IssueStore();
